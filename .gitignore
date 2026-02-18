@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Environnement virtuel
+venv/
+.venv/
+
+# Fichiers secrets
+.env
+
+# Modèles ML (ne pas versionner les binaires)
+models/*.joblib
+models/*.npy
+models/*.parquet
+
+
+# Notebooks temporaires
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
