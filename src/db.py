@@ -24,7 +24,8 @@ def read_sql(query: str, params=None) -> pd.DataFrame:
         cnx.close()
     return df
 
-def execute_sql(query: str, params=None):
+
+def execute_sql(query: str, params=None, fetch_one=False):
     cnx = get_connection()
     try:
         cursor = cnx.cursor()
@@ -32,6 +33,9 @@ def execute_sql(query: str, params=None):
             cursor.execute(query)
         else:
             cursor.execute(query, params)
+
+        row = cursor.fetchone() if fetch_one else None
         cnx.commit()
+        return row
     finally:
         cnx.close()

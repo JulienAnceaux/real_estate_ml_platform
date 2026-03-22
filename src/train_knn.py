@@ -25,7 +25,7 @@ def load_training_data():
     print(df.columns)
 
     # 🔴 Adapte cette liste si besoin
-    feature_cols = ["Lat", "Lng", "GLA"]
+    feature_cols = ["Lat", "Lng"]
 
     # Diagnostic des NaN
     print("\nNombre de NaN par colonne de features :")
