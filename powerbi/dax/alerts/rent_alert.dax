@@ -1,0 +1,22 @@
+Rent Alert =
+VAR _Rent = [Rent €/sqm]
+VAR _Benchmark = [Benchmark Rent €/sqm]
+
+VAR _GapPct =
+    DIVIDE(_Rent - _Benchmark, _Benchmark)
+
+VAR _GapPctFormatted =
+    FORMAT(_GapPct, "+0.0%; -0.0%")
+
+VAR _ShowAlert =
+    ABS(_GapPct) > 0.10
+
+VAR _Message =
+    IF(
+        _GapPct > 0,
+        "⚠️ Loyer supérieur de " & _GapPctFormatted & " au benchmark marché",
+        "⚠️ Loyer inférieur de " & _GapPctFormatted & " au benchmark marché"
+    )
+
+RETURN
+    IF(_ShowAlert, _Message, BLANK())
