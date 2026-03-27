@@ -4,9 +4,11 @@ VAR _OccupiedSurface =
 VAR _TotalSurface =
 VAR _TargetOccupancy = [Target Occupancy Rate] ## ça peut être un paramètre que tu crées
 
-VAR _Gap = DIVIDE(_OccupiedSurface, _TotalSurface)
+VAR _OccupancyRate = DIVIDE(_OccupiedSurface, _TotalSurface)
 
-VAR _GapFormatted = FORMAT(_Gap, "-%0.0, +%0.0")
+VAR _Gap = _OccupancyRate - _TargetOccupancy
+
+VAR _GapFormatted = FORMAT(_Gap, "+0.0%, -0.0%")
 
 VAR _ShowAlert = ABS(_Gap) > 0.05
 
