@@ -3,3 +3,10 @@ Occupancy alert =
 VAR Occupancy surface =
 VAR All surface =
 
+VAR Gap_pct = DIVIDE(Occupancy surface - All surface, All surface)
+
+VAR Formatting = FORMAT([Gap_pct], -%0.0, +%0.0)
+
+VAR Abs = ABS(Formatting)
+
+RETURN
