@@ -4,10 +4,9 @@ VAR _OccupiedSurface =
 VAR _TotalSurface =
 VAR _TargetOccupancy = [Target Occupancy Rate] ## ça peut être un paramètre que tu crées
 
+VAR _Gap = DIVIDE(_OccupiedSurface, _TotalSurface)
 
-VAR Gap_pct = DIVIDE(_OccupiedSurface, _TotalSurface)
-
-VAR Formatting = FORMAT([Gap_pct], -%0.0, +%0.0)
+VAR Formatting = FORMAT(_Gap, "-%0.0, +%0.0")
 
 VAR Abs = ABS(Formatting)
 
