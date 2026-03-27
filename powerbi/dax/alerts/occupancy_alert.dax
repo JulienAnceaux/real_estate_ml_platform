@@ -1,9 +1,11 @@
 Occupancy alert =
 
-VAR Occupancy surface =
-VAR All surface =
+VAR _OccupiedSurface =
+VAR _TotalSurface =
+VAR _TargetOccupancy = [Target Occupancy Rate] ## ça peut être un paramètre que tu crées
 
-VAR Gap_pct = DIVIDE(Occupancy surface - All surface, All surface)
+
+VAR Gap_pct = DIVIDE(_OccupiedSurface, _TotalSurface)
 
 VAR Formatting = FORMAT([Gap_pct], -%0.0, +%0.0)
 
