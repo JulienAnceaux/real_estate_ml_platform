@@ -8,6 +8,14 @@ VAR _Gap = DIVIDE(_OccupiedSurface, _TotalSurface)
 
 VAR _GapFormatted = FORMAT(_Gap, "-%0.0, +%0.0")
 
-VAR Abs = ABS(Formatting)
+VAR _ShowAlert = ABS(_Gap) > 0.05
+
+VAR _Message = 
+	IF(
+		_ShowAlert,
+		"immeuble sous occupé",
+		"immeuble bien occupé"
+	)
 
 RETURN
+	_Message
